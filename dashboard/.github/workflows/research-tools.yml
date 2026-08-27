@@ -1,0 +1,71 @@
+name: Research New AI Tools
+
+on:
+  # Manual trigger with research parameters
+  workflow_dispatch:
+    inputs:
+      research_focus:
+        description: 'Focus area for research (e.g., "coding tools", "image generation", "productivity")'
+        required: false
+        default: 'general AI tools'
+        type: string
+      max_tools:
+        description: 'Maximum number of tools to research'
+        required: false
+        default: '10'
+        type: string
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Create research prompt
+        id: prompt
+        run: |
+          echo "RESEARCH_PROMPT=Research the latest ${{ github.event.inputs.research_focus }} released in the past week. Find up to ${{ github.event.inputs.max_tools }} new tools and provide their name, URL, and description." >> $GITHUB_ENV
+
+      - name: Generate research report
+        run: |
+          echo "# AI Tools Research Report" > research_report.md
+          echo "" >> research_report.md
+          echo "**Focus:** ${{ github.event.inputs.research_focus }}" >> research_report.md
+          echo "**Date:** $(date -u +"%Y-%m-%d")" >> research_report.md
+          echo "" >> research_report.md
+          echo "## Instructions for Cloud Agent" >> research_report.md
+          echo "" >> research_report.md
+          echo "To add new tools discovered during research:" >> research_report.md
+          echo "" >> research_report.md
+          echo "1. Create a \`pending_tools.json\` file in \`dashboard/src/data/\`" >> research_report.md
+          echo "2. Add tools in this format:" >> research_report.md
+          echo '```json' >> research_report.md
+          echo '{' >> research_report.md
+          echo '  "tools": [' >> research_report.md
+          echo '    {' >> research_report.md
+          echo '      "name": "Tool Name",' >> research_report.md
+          echo '      "url": "https://example.com",' >> research_report.md
+          echo '      "description": "What the tool does",' >> research_report.md
+          echo '      "category": "Category Name"' >> research_report.md
+          echo '    }' >> research_report.md
+          echo '  ]' >> research_report.md
+          echo '}' >> research_report.md
+          echo '```' >> research_report.md
+          echo "" >> research_report.md
+          echo "3. Run the weekly-update workflow to process pending tools" >> research_report.md
+
+      - name: Upload research report
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-report
+          path: research_report.md

@@ -1,0 +1,36 @@
+{
+  "description": "Sample file showing the format for adding new AI tools in batch",
+  "instructions": "Add new tools to the 'tools' array below and run: python research_new_tools.py batch sample_new_tools.json",
+  "tools": [
+    {
+      "name": "Claude",
+      "url": "https://claude.ai",
+      "description": "Advanced AI assistant by Anthropic for analysis, writing, math, coding, and creative tasks with strong safety alignment.",
+      "category": "Chatbots & Assistants"
+    },
+    {
+      "name": "Cursor",
+      "url": "https://cursor.com",
+      "description": "AI-powered code editor that helps developers write, edit, and understand code faster with intelligent autocomplete and chat.",
+      "category": "Code & Development"
+    },
+    {
+      "name": "Perplexity AI",
+      "url": "https://perplexity.ai",
+      "description": "AI-powered search engine that provides direct answers with cited sources, replacing traditional search for research.",
+      "category": "Research & Knowledge"
+    },
+    {
+      "name": "Gamma",
+      "url": "https://gamma.app",
+      "description": "AI presentation maker that generates beautiful slides, documents, and webpages from simple prompts.",
+      "category": "Creative & Design"
+    },
+    {
+      "name": "Descript",
+      "url": "https://descript.com",
+      "description": "AI video and podcast editing platform with transcription, screen recording, and voice cloning capabilities.",
+      "category": "Video & Animation"
+    }
+  ]
+}
