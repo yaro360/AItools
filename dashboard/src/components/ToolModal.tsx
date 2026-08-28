@@ -12,29 +12,29 @@ export function ToolModal({ tool, onClose }: ToolModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div
-        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/80"
         onClick={onClose}
       />
       
-      <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-fade-in">
+      <div className="relative bg-[#161616] border border-[#2A2A2A] rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-fade-in">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition"
+          className="absolute top-4 right-4 p-2 bg-[#0A0A0A] border border-[#2A2A2A] hover:border-[#3B9EFF] rounded-lg transition"
         >
-          <X className="w-5 h-5" />
+          <X className="w-5 h-5 text-[#F5F5F5]" />
         </button>
         
         <div className="p-8">
           <div className="mb-6">
             <div className="flex items-center gap-3 mb-2">
-              <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">{tool.name}</h2>
+              <h2 className="text-2xl font-bold text-[#FFD400]">{tool.name}</h2>
               {tool.featured && (
-                <span className="bg-amber-500/20 text-amber-400 text-xs px-2 py-1 rounded-full">
+                <span className="bg-[#FFD400]/20 text-[#FFD400] text-xs px-2 py-1 rounded-full font-medium">
                   Featured
                 </span>
               )}
             </div>
-            <div className="flex items-center gap-4 text-sm text-white/60">
+            <div className="flex items-center gap-4 text-sm text-[#A3A3A3]">
               <span className="flex items-center gap-1">
                 <Tag className="w-4 h-4" />
                 {tool.category}
@@ -48,36 +48,36 @@ export function ToolModal({ tool, onClose }: ToolModalProps) {
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                <Bookmark className="w-5 h-5 text-purple-400" />
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-[#F5F5F5]">
+                <Bookmark className="w-5 h-5 text-[#3B9EFF]" />
                 Description
               </h3>
-              <p className="text-white/80 leading-relaxed">{tool.description}</p>
+              <p className="text-[#A3A3A3] leading-relaxed">{tool.description}</p>
             </div>
             
-            <div className="bg-purple-500/10 border border-purple-500/20 rounded-2xl p-5">
-              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                <Lightbulb className="w-5 h-5 text-amber-400" />
+            <div className="bg-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-5">
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-[#F5F5F5]">
+                <Lightbulb className="w-5 h-5 text-[#FFD400]" />
                 Example Use Case
               </h3>
-              <p className="text-white/80 leading-relaxed">{tool.example}</p>
+              <p className="text-[#A3A3A3] leading-relaxed">{tool.example}</p>
             </div>
             
-            <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-5">
-              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-emerald-400" />
+            <div className="bg-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-5">
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-[#F5F5F5]">
+                <CheckCircle className="w-5 h-5 text-[#FFD400]" />
                 Why Use It
               </h3>
-              <p className="text-white/80 leading-relaxed">{tool.why_use}</p>
+              <p className="text-[#A3A3A3] leading-relaxed">{tool.why_use}</p>
             </div>
             
             <div>
-              <h3 className="text-sm font-medium text-white/60 mb-3">Tags</h3>
+              <h3 className="text-sm font-medium text-[#A3A3A3] mb-3">Tags</h3>
               <div className="flex flex-wrap gap-2">
                 {tool.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-white/10 rounded-full text-sm"
+                    className="px-3 py-1 bg-[#0A0A0A] border border-[#2A2A2A] rounded-lg text-sm text-[#F5F5F5]"
                   >
                     {tag}
                   </span>
@@ -89,7 +89,7 @@ export function ToolModal({ tool, onClose }: ToolModalProps) {
               href={tool.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 w-full flex items-center justify-center gap-2 mt-6"
+              className="bg-[#3B9EFF] hover:bg-[#6AB6FF] text-white px-6 py-3 rounded-lg font-semibold transition w-full flex items-center justify-center gap-2 mt-6"
             >
               Visit {tool.name} <ExternalLink className="w-5 h-5" />
             </a>

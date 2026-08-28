@@ -22,39 +22,35 @@ export function Stats({ tools, categories }: StatsProps) {
       label: 'Total Tools',
       value: tools.length,
       icon: Sparkles,
-      color: 'from-purple-500 to-pink-500',
     },
     {
       label: 'Categories',
       value: activeCategories.length,
       icon: Layers,
-      color: 'from-blue-500 to-cyan-500',
     },
     {
       label: 'Added This Month',
       value: recentTools.length,
       icon: Calendar,
-      color: 'from-emerald-500 to-teal-500',
     },
     {
       label: 'Featured',
       value: featuredTools.length,
       icon: TrendingUp,
-      color: 'from-amber-500 to-orange-500',
     },
   ];
 
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
       {stats.map((stat) => (
-        <div key={stat.label} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5">
+        <div key={stat.label} className="bg-[#161616] border border-[#2A2A2A] rounded-xl p-5">
           <div className="flex items-center gap-3 mb-3">
-            <div className={`p-2 bg-gradient-to-br ${stat.color} rounded-lg`}>
-              <stat.icon className="w-5 h-5 text-white" />
+            <div className="p-2 bg-[#0A0A0A] border border-[#2A2A2A] rounded-lg">
+              <stat.icon className="w-5 h-5 text-[#FFD400]" />
             </div>
           </div>
-          <div className="text-2xl font-bold text-white">{stat.value.toLocaleString()}</div>
-          <div className="text-sm text-white/60">{stat.label}</div>
+          <div className="text-2xl font-bold text-[#FFD400]">{stat.value.toLocaleString()}</div>
+          <div className="text-sm text-[#A3A3A3]">{stat.label}</div>
         </div>
       ))}
     </div>

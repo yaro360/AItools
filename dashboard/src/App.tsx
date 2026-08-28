@@ -109,8 +109,8 @@ function App() {
           onCategorySelect={setSelectedCategory}
         />
         
-        <div className="mb-4 text-sm text-white/60">
-          Showing {paginatedTools.length} of {filteredAndSortedTools.length} tools
+        <div className="mb-4 text-sm text-[#A3A3A3]">
+          Showing <span className="text-[#FFD400]">{paginatedTools.length}</span> of <span className="text-[#FFD400]">{filteredAndSortedTools.length}</span> tools
           {selectedCategory && ` in ${selectedCategory}`}
         </div>
         

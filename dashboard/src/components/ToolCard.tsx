@@ -14,31 +14,31 @@ export function ToolCard({ tool, viewMode, onSelect }: ToolCardProps) {
     return (
       <div
         onClick={() => onSelect(tool)}
-        className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer group hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex flex-col sm:flex-row sm:items-center gap-4 animate-fade-in"
+        className="bg-[#161616] border border-[#2A2A2A] rounded-xl p-6 cursor-pointer group hover:border-[#3B9EFF] transition-colors flex flex-col sm:flex-row sm:items-center gap-4 animate-fade-in"
       >
         <div className="flex-1">
           <div className="flex items-center gap-3 mb-2">
-            <h3 className="text-lg font-semibold text-white group-hover:text-purple-400 transition">
+            <h3 className="text-lg font-semibold text-[#F5F5F5] group-hover:text-[#3B9EFF] transition">
               {tool.name}
             </h3>
             {tool.featured && (
-              <span className="flex items-center gap-1 bg-amber-500/20 text-amber-400 text-xs px-2 py-1 rounded-full">
+              <span className="flex items-center gap-1 bg-[#FFD400]/20 text-[#FFD400] text-xs px-2 py-1 rounded-full font-medium">
                 <Star className="w-3 h-3" /> Featured
               </span>
             )}
             {isNew && (
-              <span className="flex items-center gap-1 bg-emerald-500/20 text-emerald-400 text-xs px-2 py-1 rounded-full">
+              <span className="bg-[#FFD400]/20 text-[#FFD400] text-xs px-2 py-1 rounded-full font-medium">
                 New
               </span>
             )}
           </div>
-          <p className="text-white/70 text-sm line-clamp-2 mb-3">{tool.description}</p>
+          <p className="text-[#A3A3A3] text-sm line-clamp-2 mb-3">{tool.description}</p>
           <div className="flex flex-wrap gap-2">
-            <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full">
+            <span className="text-xs bg-[#0A0A0A] border border-[#2A2A2A] text-[#FFD400] px-2 py-1 rounded-lg font-medium">
               {tool.category}
             </span>
             {tool.tags.slice(0, 3).map((tag) => (
-              <span key={tag} className="text-xs bg-white/10 text-white/60 px-2 py-1 rounded-full">
+              <span key={tag} className="text-xs bg-[#0A0A0A] border border-[#2A2A2A] text-[#A3A3A3] px-2 py-1 rounded-lg">
                 {tag}
               </span>
             ))}
@@ -50,7 +50,7 @@ export function ToolCard({ tool, viewMode, onSelect }: ToolCardProps) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 flex items-center gap-2 whitespace-nowrap"
+          className="bg-[#3B9EFF] hover:bg-[#6AB6FF] text-white px-6 py-3 rounded-lg font-semibold transition flex items-center gap-2 whitespace-nowrap"
         >
           Visit <ExternalLink className="w-4 h-4" />
         </a>
@@ -61,36 +61,36 @@ export function ToolCard({ tool, viewMode, onSelect }: ToolCardProps) {
   return (
     <div
       onClick={() => onSelect(tool)}
-      className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer group hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02] relative animate-fade-in flex flex-col h-full"
+      className="bg-[#161616] border border-[#2A2A2A] rounded-xl p-6 cursor-pointer group hover:border-[#3B9EFF] transition-colors relative animate-fade-in flex flex-col h-full"
     >
       {tool.featured && (
-        <div className="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
+        <div className="absolute top-3 right-3 bg-[#FFD400]/20 text-[#FFD400] text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
           <Star className="w-3 h-3" /> Featured
         </div>
       )}
       {isNew && !tool.featured && (
-        <div className="absolute top-3 right-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-xs font-bold px-2 py-1 rounded-full">
+        <div className="absolute top-3 right-3 bg-[#FFD400]/20 text-[#FFD400] text-xs font-bold px-2 py-1 rounded-full">
           New
         </div>
       )}
       
       <div className="flex items-start justify-between mb-4">
-        <h3 className="text-lg font-semibold text-white group-hover:text-purple-400 transition pr-16">
+        <h3 className="text-lg font-semibold text-[#F5F5F5] group-hover:text-[#3B9EFF] transition pr-16">
           {tool.name}
         </h3>
       </div>
       
-      <p className="text-white/70 text-sm line-clamp-3 mb-4 flex-1">{tool.description}</p>
+      <p className="text-[#A3A3A3] text-sm line-clamp-3 mb-4 flex-1">{tool.description}</p>
       
       <div className="space-y-3">
         <div className="flex flex-wrap gap-2">
-          <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full">
+          <span className="text-xs bg-[#0A0A0A] border border-[#2A2A2A] text-[#FFD400] px-2 py-1 rounded-lg font-medium">
             {tool.category}
           </span>
         </div>
         
-        <div className="flex items-center justify-between pt-3 border-t border-white/10">
-          <span className="text-xs text-white/50">
+        <div className="flex items-center justify-between pt-3 border-t border-[#2A2A2A]">
+          <span className="text-xs text-[#A3A3A3]">
             Added {formatDate(tool.added_date)}
           </span>
           <a
@@ -98,7 +98,7 @@ export function ToolCard({ tool, viewMode, onSelect }: ToolCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="flex items-center gap-1 text-purple-400 hover:text-purple-300 text-sm font-medium transition"
+            className="flex items-center gap-1 text-[#3B9EFF] hover:text-[#6AB6FF] hover:underline text-sm font-medium transition"
           >
             Visit <ExternalLink className="w-4 h-4" />
           </a>

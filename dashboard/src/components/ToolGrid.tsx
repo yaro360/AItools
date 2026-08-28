@@ -13,17 +13,17 @@ export function ToolGrid({ tools, viewMode, onToolSelect, isLoading }: ToolGridP
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-10 h-10 text-purple-400 animate-spin" />
+        <Loader2 className="w-10 h-10 text-[#3B9EFF] animate-spin" />
       </div>
     );
   }
 
   if (tools.length === 0) {
     return (
-      <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-12 text-center">
-        <PackageX className="w-16 h-16 text-white/30 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-white mb-2">No tools found</h3>
-        <p className="text-white/60">
+      <div className="bg-[#161616] border border-[#2A2A2A] rounded-xl p-12 text-center">
+        <PackageX className="w-16 h-16 text-[#A3A3A3] mx-auto mb-4" />
+        <h3 className="text-xl font-semibold text-[#F5F5F5] mb-2">No tools found</h3>
+        <p className="text-[#A3A3A3]">
           Try adjusting your search or filters to find what you're looking for.
         </p>
       </div>

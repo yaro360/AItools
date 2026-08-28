@@ -45,18 +45,14 @@ export function CategoryFilter({
     return () => window.removeEventListener('resize', handleScroll);
   }, []);
 
-  const pillBaseClass = "px-4 py-2 rounded-full text-sm font-medium transition-all cursor-pointer whitespace-nowrap";
-  const pillInactiveClass = `${pillBaseClass} bg-white/10 hover:bg-white/20 border border-white/10`;
-  const pillActiveClass = `${pillBaseClass} bg-gradient-to-r from-purple-600 to-pink-600`;
-
   return (
     <div className="relative mb-8">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold text-white">Categories</h2>
+        <h2 className="text-lg font-semibold text-[#F5F5F5]">Categories</h2>
         {selectedCategory && (
           <button
             onClick={() => onCategorySelect(null)}
-            className="text-sm text-purple-400 hover:text-purple-300 transition"
+            className="text-sm text-[#3B9EFF] hover:text-[#6AB6FF] hover:underline transition"
           >
             Clear filter
           </button>
@@ -67,9 +63,9 @@ export function CategoryFilter({
         {showLeftArrow && (
           <button
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-slate-900/90 rounded-full shadow-lg hover:bg-slate-800 transition"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-[#161616] border border-[#2A2A2A] rounded-full hover:bg-[#2A2A2A] transition"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-5 h-5 text-[#F5F5F5]" />
           </button>
         )}
         
@@ -80,7 +76,11 @@ export function CategoryFilter({
         >
           <button
             onClick={() => onCategorySelect(null)}
-            className={selectedCategory === null ? pillActiveClass : pillInactiveClass}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition whitespace-nowrap ${
+              selectedCategory === null 
+                ? 'bg-[#3B9EFF] text-white' 
+                : 'bg-[#161616] border border-[#2A2A2A] text-[#F5F5F5] hover:bg-[#2A2A2A]'
+            }`}
           >
             All Tools
           </button>
@@ -89,11 +89,15 @@ export function CategoryFilter({
             <button
               key={category.id}
               onClick={() => onCategorySelect(category.name)}
-              className={selectedCategory === category.name ? pillActiveClass : pillInactiveClass}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition whitespace-nowrap ${
+                selectedCategory === category.name 
+                  ? 'bg-[#3B9EFF] text-white' 
+                  : 'bg-[#161616] border border-[#2A2A2A] text-[#F5F5F5] hover:bg-[#2A2A2A]'
+              }`}
             >
               <span className="mr-2">{category.icon}</span>
               {category.name}
-              <span className="ml-2 text-white/50">({category.tool_count})</span>
+              <span className="ml-2 text-[#A3A3A3]">({category.tool_count})</span>
             </button>
           ))}
         </div>
@@ -101,9 +105,9 @@ export function CategoryFilter({
         {showRightArrow && (
           <button
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-slate-900/90 rounded-full shadow-lg hover:bg-slate-800 transition"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-[#161616] border border-[#2A2A2A] rounded-full hover:bg-[#2A2A2A] transition"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-5 h-5 text-[#F5F5F5]" />
           </button>
         )}
       </div>

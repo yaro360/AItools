@@ -38,9 +38,9 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed hover:bg-white/10 transition"
+        className="p-2 bg-[#161616] border border-[#2A2A2A] rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:border-[#3B9EFF] transition"
       >
-        <ChevronLeft className="w-5 h-5" />
+        <ChevronLeft className="w-5 h-5 text-[#F5F5F5]" />
       </button>
       
       {getPageNumbers().map((page, index) => (
@@ -48,12 +48,12 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
           key={index}
           onClick={() => typeof page === 'number' && onPageChange(page)}
           disabled={page === '...'}
-          className={`min-w-[40px] h-10 rounded-xl transition ${
+          className={`min-w-[40px] h-10 rounded-lg transition ${
             page === currentPage
-              ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold'
+              ? 'bg-[#3B9EFF] text-white font-semibold'
               : page === '...'
-              ? 'cursor-default text-white/50'
-              : 'bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10'
+              ? 'cursor-default text-[#A3A3A3]'
+              : 'bg-[#161616] border border-[#2A2A2A] text-[#F5F5F5] hover:border-[#3B9EFF]'
           }`}
         >
           {page}
@@ -63,9 +63,9 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed hover:bg-white/10 transition"
+        className="p-2 bg-[#161616] border border-[#2A2A2A] rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:border-[#3B9EFF] transition"
       >
-        <ChevronRight className="w-5 h-5" />
+        <ChevronRight className="w-5 h-5 text-[#F5F5F5]" />
       </button>
     </div>
   );
